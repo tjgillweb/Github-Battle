@@ -76,7 +76,7 @@ export default class Popular extends React.Component{
 
         this.state = {
             selectedLanguage: 'All',
-            repos: {},
+            repos: {}, //fetched languages will be key on repos object
             error: null
         }
 
@@ -96,6 +96,7 @@ export default class Popular extends React.Component{
             // null to show a loading screen because we currently don't have an error or the repositories
         })
 
+        //caching repositories
         // if the selected language doesn't already exist in repos object
         if(!this.state.repos[selectedLanguage]){
             fetchPopularRepos(selectedLanguage)
@@ -122,7 +123,7 @@ export default class Popular extends React.Component{
     isLoading(){
         const { selectedLanguage, repos, error } = this.state
 
-        // if we haven't fetched the repositories
+        // if we haven't fetched the repositories and there is no error
         return !repos[selectedLanguage] && error === null
     }
     render(){
