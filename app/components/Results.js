@@ -73,7 +73,9 @@ export default class Results extends React.Component {
         const { winner, loser, error, loading } = this.state
 
         if(loading === true){
-            return <Loading />
+            return <Loading text='Battling' />
+            // <Loading /> // use default props set in Loading component by default
+            // <Loading text='Battling' speed={100} /> //custom props
         }
         if(error){
             return (
