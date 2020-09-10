@@ -5,35 +5,38 @@ import Card from './Card'
 import PropTypes from 'prop-types'
 import Loading from './Loading'
 
-function ProfileList ({ profile }) {
-    return (
-        <ul className='card-list'>
-            <li>
-                <FaUser color='rgb(239, 115, 115)' size={22} />
-                {profile.name}
-            </li>
-            {profile.location && (
-            <li>
-                <FaCompass color='rgb(144, 115, 255)' size={22} />
-                {profile.location}
-            </li>
-            )}
-            {profile.company && (
-            <li>
-                <FaBriefcase color='#795548' size={22} />
-                {profile.company}
-            </li>
-            )}
-            <li>
-                <FaUsers color='rgb(129, 195, 245)' size={22} />
-                {profile.followers.toLocaleString()} followers
-            </li>
-            <li>
-                <FaUserFriends color='rgb(64, 183, 95)' size={22} />
-                {profile.following.toLocaleString()} following
-            </li>
-        </ul>
-    )
+class ProfileList extends React.Component {
+    render() {
+        const { profile } = this.props
+        return (
+            <ul className='card-list'>
+                <li>
+                    <FaUser color='rgb(239, 115, 115)' size={22} />
+                    {profile.name}
+                </li>
+                {profile.location && (
+                <li>
+                    <FaCompass color='rgb(144, 115, 255)' size={22} />
+                    {profile.location}
+                </li>
+                )}
+                {profile.company && (
+                <li>
+                    <FaBriefcase color='#795548' size={22} />
+                    {profile.company}
+                </li>
+                )}
+                <li>
+                    <FaUsers color='rgb(129, 195, 245)' size={22} />
+                    {profile.followers.toLocaleString()} followers
+                </li>
+                <li>
+                    <FaUserFriends color='rgb(64, 183, 95)' size={22} />
+                    {profile.following.toLocaleString()} following
+                </li>
+            </ul>
+        )
+    }
 }
 
 ProfileList.propTypes = {
