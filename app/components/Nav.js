@@ -38,7 +38,6 @@ export default function Nav() {
                         onClick={toggleTheme}
                     >
                         {theme === 'light' ? <FaMoon size={26} /> : <FaSun color='#eee' size={26} />}
-                        
                     </button>
                 </nav>
             )}
